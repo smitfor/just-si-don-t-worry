@@ -1,0 +1,36 @@
+#include <stdio.h>
+#include<stdlib.h>
+#include<time.h>
+#define m 5
+
+int main()
+{
+	int i, j,n,l,a[m][m];
+	int sum=0;
+	srand(time(NULL));
+	printf("enter number");
+	scanf_s("%i", &n);
+	printf("enter column");
+	scanf_s("%i", &l);
+	if (l >= m) {
+		printf("error");
+		return 1;
+	}
+	for (i = 0; i < m; i++)
+	{
+		for (j = 0; j < m; j++)
+		{
+			a[i][j] = rand() %2;
+			printf("%i ", a[i][j]);
+		}
+		printf("\n");
+	}
+	for (i = 0; i < m; i++)
+	{
+		sum += a[i][l];
+	}
+	if (sum == n)
+		printf("sum= %i=%d", sum, n);
+	else
+		printf("sum= %i!=%d", sum, n);
+}
